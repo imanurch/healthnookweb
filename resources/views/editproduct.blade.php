@@ -3,14 +3,14 @@
 @section('container')
 <div>
     <h1 class="text-headline1 mb-10">Edit Product</h1>
-    <form action="edit_product" method="post">
+    <form action="/edit_product/{{ $product->id_product }}" method="post">
         @method('put')
         @csrf
         <div class="w-80 space-y-10">
             <div class="space-y-5">
                 <div>
-                    <label for="id" class="text-body1 text-neutral-400">Id Product</label>
-                    <br><input type="text" name="id" id="id" value="{{ $product->id_product }}" class="border-[1px] rounded border-neutral-400 text-text1 text-neutral-400 p-2 w-full" disabled>
+                    <label for="id_product" class="text-body1 text-neutral-400">Id Product</label>
+                    <br><input type="text" name="id_product" id="id_product" value="{{ $product->id_product }}" class="border-[1px] rounded border-neutral-400 text-text1 text-neutral-400 p-2 w-full" disabled>
                 </div>
                 <div>
                     <label for="nama_product" class="text-body1">Nama</label>

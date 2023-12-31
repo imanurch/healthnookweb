@@ -26,7 +26,16 @@
                     <td class="px-5">{{ $user->email }}</td>
                     <td class="px-5">
                         <div class="flex justify-center space-x-2.5">
-                            <img src="assets/acc.svg" alt="" class="p-3 bg-success-500 rounded {{ ($user->status == "1")?'hidden':'show' }}">
+                            <form action="/verif_akun/{{ $user->id_user }}" method="post">
+                                @method('put')
+                                @csrf
+                                <button class="cursor-pointer" onclick="edit()"><img src="assets/acc.svg" alt="" class="p-3 bg-success-500 rounded {{ ($user->status == "1")?'hidden':'show' }}"></button>
+                            </form>
+                            <script>
+                                function edit(){
+                                    confirm("verifikasi akun?");
+                                }
+                            </script>
                             <img src="assets/reject.svg" alt="" class="p-3 bg-danger-400 rounded {{ ($user->status == "1")?'hidden':'show' }}">                        
                             <div class="flex {{ ($user->status == "0")?'hidden':'show' }}">
                                 <img src="assets/approve.svg" alt="" class="">  
@@ -36,7 +45,7 @@
                     </td>
                     <td class="px-5 py-2">
                         <div class="flex justify-center space-x-2.5">                    
-                            <a href="edit_user" class="rounded bg-warning-500 text-btnmedium text-neutral-0 self-center py-2.5 px-4">Edit</a>
+                            <a href="edit_user/{{ $user->id_user }}" class="rounded bg-warning-500 text-btnmedium text-neutral-0 self-center py-2.5 px-4">Edit</a>
                             <form action="user/{{ $user}}" method="post">
                                 @method('delete')
                                 @csrf

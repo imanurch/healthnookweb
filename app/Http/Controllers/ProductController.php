@@ -50,6 +50,7 @@ class ProductController extends Controller
 
     public function update(Request $request)
     {
+        // @dd($request);
         $validatedData = $request->validate([
             'nama_product' => 'required',
             'harga' => 'required|integer',
@@ -58,9 +59,9 @@ class ProductController extends Controller
             // 'foto_product' => 'required',
         ]);
 
-        Product::where('id_product', $request->id_product)->update($validatedData);
-        return view('product', [
-            "products" => Product::all()
-        ]);
+        (Product::where('id_product', $request->id_product)->update($validatedData));
+        // @dd(Product::where('id_product', $request->id_product)->get());
+
+        return redirect('/product');
     }
 }

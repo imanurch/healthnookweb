@@ -2,14 +2,14 @@
 
 @section('container')
 <div>
-    <h1 class="text-headline1 mb-10">{{ $title }} User</h1>
-    <form action="{{($title ==='Tambah')?'tambah':'edit'}}_user" method="post">
+    <h1 class="text-headline1 mb-10">Tambah User</h1>
+    <form action="tambah_user" method="post">
         @csrf
         <div class="w-80 space-y-10">
             <div class="space-y-5">
                 <div>
                     <label for="id_user" class="text-body1 text-neutral-400">Id User</label>
-                    <br><input type="id" name="id_user" id="id_user" value="{{ ($title === "Tambah")? $currentid: $id }}" class="border-[1px] rounded border-neutral-400 text-text1 text-neutral-400 p-2 w-full" disabled>
+                    <br><input type="id" name="id_user" id="id_user" value="{{ $currentid }}" class="border-[1px] rounded border-neutral-400 text-text1 text-neutral-400 p-2 w-full" disabled>
                 </div>
                 <div>
                     <label for="nama_user" class="text-body1">Nama</label>
@@ -41,7 +41,7 @@
                 </div>
             </div>
             <div class="space-y-5">
-                <button type="submit" class="text-btnmedium text-neutral-0 bg-primary-500 shadow-btnshadow rounded py-2.5 w-full">{{ $save }}</button>
+                <button type="submit" class="text-btnmedium text-neutral-0 bg-primary-500 shadow-btnshadow rounded py-2.5 w-full">Simpan</button>
                 <div class="flex justify-center border border-neutral-500 rounded py-2.5 w-full space-x-2">
                     <a href="" class="text-btnmedium self-center">Batal</a>
                 </div>

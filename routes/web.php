@@ -51,7 +51,9 @@ Route::get('/user', [UserController::class, 'index']);
 // Route::post('/user/{id_user}', [UserController::class, 'destroy']);
 Route::get('/tambah_user', [UserController::class, 'add']);
 Route::post('/tambah_user', [UserController::class, 'insert']);
-Route::get('/edit_user', [UserController::class, 'edit']);
+Route::get('/edit_user/{id_user}', [UserController::class, 'edit']);
+Route::put('/edit_user/{id_user}', [UserController::class, 'update']);
+Route::put('/verif_akun/{id_user}', [UserController::class, 'verif']);
 
 Route::get('/product', [ProductController::class, 'index']);
 Route::get('/tambah_product', [ProductController::class, 'add']);

@@ -16,21 +16,16 @@ class UserController extends Controller
 
     public function add()
     {
-        return view('manageuser', [
-            "title" => "Tambah",
-            "save" => "Simpan",
-            // "lastid" => User::all()->last()->id_user,
-            "currentid" => (User::all()->last()->id_user)+1
+        $lastid = User::all()->last() ? User::all()->last()->id_user + 1 : 1;
+        return view('adduser', [
+            'currentid' => $lastid
         ]);
     }
 
-    public function edit()
+    public function edit($id)
     {
-        return view('manageuser', [
-            "title" => "Edit",
-            "save" => "Simpan Perubahan",
-            // "users" => User::all()
-            "id" => (User::all()->last()->id_user)
+        return view('edituser', [
+            "user" => User::where('id_user', $id)->get()->first(),
         ]);
     }
 
@@ -49,7 +44,35 @@ class UserController extends Controller
         // @dd("success");
     }
 
-    public function destroy(User $id_user){
+    public function update(Request $request)
+    {
+        // @dd($request);
+        $validatedData = $request->validate([
+            'nama_user' => 'required',
+            'no_telp' => 'required|unique:users|min:12|max:12',
+            'email' => 'required|unique:users|email:dns',
+            'password' => 'required|min:8|max:12',
+        ]);
+
+        (User::where('id_user', $request->id_user)->update($validatedData));
+        // @dd(Product::where('id_product', $request->id_product)->get());
+
+        return redirect('/user');
+    }
+    public function verif(Request $request)
+    {
+        $request['status'] = '1';
+        $validatedData = $request->validate([
+            'status' => 'required',
+        ]);
+
+        (User::where('id_user', $request->id_user)->update($validatedData));
+
+        return redirect('/user');
+    }
+
+    public function destroy(User $id_user)
+    {
         // $data = User::find($id_user);
         // $data->delete();
         User::destroy($id_user);
