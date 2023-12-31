@@ -29,11 +29,16 @@
                             <form action="/verif_akun/{{ $user->id_user }}" method="post">
                                 @method('put')
                                 @csrf
-                                <button class="cursor-pointer" onclick="edit()"><img src="assets/acc.svg" alt="" class="p-3 bg-success-500 rounded {{ ($user->status == "1")?'hidden':'show' }}"></button>
+                                <button class="cursor-pointer"  onclick="edit()"><img src="assets/acc.svg" alt="" class="p-3 bg-success-500 rounded {{ ($user->status == "1")?'hidden':'show' }}"></button>
                             </form>
                             <script>
                                 function edit(){
                                     confirm("verifikasi akun?");
+                                    // let text = "verifikasi akun?";
+                                    // if(confirm(text) == true){                                        
+                                    // } else{
+                                    //     return redirect('/user');
+                                    // }
                                 }
                             </script>
                             <img src="assets/reject.svg" alt="" class="p-3 bg-danger-400 rounded {{ ($user->status == "1")?'hidden':'show' }}">                        
@@ -46,8 +51,8 @@
                     <td class="px-5 py-2">
                         <div class="flex justify-center space-x-2.5">                    
                             <a href="edit_user/{{ $user->id_user }}" class="rounded bg-warning-500 text-btnmedium text-neutral-0 self-center py-2.5 px-4">Edit</a>
-                            <form action="user/{{ $user}}" method="post">
-                                @method('delete')
+                            <form action="/delete_user/{{ $user->id_user }}" method="post">
+                                @method('put')
                                 @csrf
                                 <button class=" rounded bg-danger-500 text-btnmedium text-neutral-0 self-center py-2.5 px-4">Hapus</button>
                             </form>

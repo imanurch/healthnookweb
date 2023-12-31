@@ -71,13 +71,9 @@ class UserController extends Controller
         return redirect('/user');
     }
 
-    public function destroy(User $id_user)
+    public function delete(Request $request)
     {
-        // $data = User::find($id_user);
-        // $data->delete();
-        User::destroy($id_user);
-        return redirect('user', [
-            "users" => User::all(),
-        ])->with('success', 'Data user berhasil dihapus!');
+        User::where('id_user', $request->id_user)->delete();
+        return redirect('/user');
     }
 }

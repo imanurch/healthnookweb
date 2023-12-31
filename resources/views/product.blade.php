@@ -33,7 +33,11 @@
                     <td class="px-5 py-2">
                         <div class="flex space-x-2.5">                    
                             <a href="edit_product/{{ $product->id_product }}" class=" rounded bg-warning-500 text-btnmedium text-neutral-0 self-center py-2.5 px-4">Edit</a>
-                            <a href="" class=" rounded bg-danger-500 text-btnmedium text-neutral-0 self-center py-2.5 px-4">Hapus</a>
+                            <form action="/delete_product/{{ $product->id_product }}" method="post">
+                                @method('put')
+                                @csrf
+                                <button class=" rounded bg-danger-500 text-btnmedium text-neutral-0 self-center py-2.5 px-4">Hapus</button>
+                            </form>
                         </div>
                     </td>
                 </tr>
