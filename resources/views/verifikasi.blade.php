@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class=" bg-primary-500 shadow-btnshadow rounded w-fit py-3">
-                <a href="index" class="text-btnmedium text-neutral-0 py-3 px-32">Beranda</a>
+                <a href="/" class="text-btnmedium text-neutral-0 py-3 px-32">Beranda</a>
             </div>
             
         </div>

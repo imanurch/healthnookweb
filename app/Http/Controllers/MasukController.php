@@ -22,9 +22,17 @@ class MasukController extends Controller
         // dd('success');
 
         if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
+            $verif = User::where('status', '1')->where('role', 'customer')->first() ? 1 : 0;
+            // @dd($verif);
 
-            return redirect()->intended('/');
+            if ($verif == '1') {
+                // @dd('verif succes');
+                $request->session()->regenerate();
+                return redirect('/');
+            } else {
+                // @dd('verif gagal');
+                return redirect('/verifikasi');
+            }
         }
 
         return back()->with('loginError', 'Masuk Akun Gagal');
