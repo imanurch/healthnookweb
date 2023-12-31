@@ -25,31 +25,36 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [IndexController::class, 'index']);
 // Route::get('/katalog', [IndexController::class, 'index']);
-Route::get('/masker', [KategoriMaskerController::class, 'index']);
-Route::get('/obat_dalam', [KategoriObatDalamController::class, 'index']);
-Route::get('/alat_medis', [KategoriAlatMedisController::class, 'index']);
-Route::get('/obat_luar', [KategoriObatLuarController::class, 'index']);
+Route::get('/masker', [IndexController::class, 'masker']);
+Route::get('/obat_dalam', [IndexController::class, 'obat_dalam']);
+Route::get('/alat_medis', [IndexController::class, 'alat_medis']);
+Route::get('/obat_luar', [IndexController::class, 'obat_luar']);
 
-Route::get('/daftar.php', [DaftarController::class, 'index']);
-Route::post('/daftar.php', [DaftarController::class, 'insert']);
+Route::get('/daftar', [DaftarController::class, 'index']);
+Route::post('/daftar', [DaftarController::class, 'insert']);
 
-Route::get('/masuk.php', [MasukController::class, 'index'])->middleware('guest');
-Route::post('/masuk.php', [MasukController::class, 'authenticate']);
+Route::get('/masuk', [MasukController::class, 'index'])->middleware('guest');
+Route::post('/masuk', [MasukController::class, 'authenticate']);
 
-Route::get('/verifikasi.php', function () {
+Route::get('/verifikasi', function () {
     return view('verifikasi');
 });
 
-Route::get('/admin.php', function () {
+Route::get('/admin', function () {
     return view('/admin/layout');
 });
 
-Route::get('/dashboard.php', [DashboardController::class, 'index']);
+Route::get('/dashboard', [DashboardController::class, 'index']);
 
-Route::get('/user.php', [UserController::class, 'index']);
-Route::get('/tambah_user.php', [UserController::class, 'add']);
-Route::get('/edit_user.php', [UserController::class, 'edit']);
+Route::get('/user', [UserController::class, 'index']);
+// Route::get('/user/{id_user}', [UserController::class, 'destroy']);
+// Route::post('/user/{id_user}', [UserController::class, 'destroy']);
+Route::get('/tambah_user', [UserController::class, 'add']);
+Route::post('/tambah_user', [UserController::class, 'insert']);
+Route::get('/edit_user', [UserController::class, 'edit']);
 
-Route::get('/product.php', [ProductController::class, 'index']);
-Route::get('/tambah_product.php', [ProductController::class, 'add']);
-Route::get('/edit_product.php', [ProductController::class, 'edit']);
+Route::get('/product', [ProductController::class, 'index']);
+Route::get('/tambah_product', [ProductController::class, 'add']);
+Route::post('/tambah_product', [ProductController::class, 'insert']);
+Route::get('/edit_product/{id_product}', [ProductController::class, 'edit']);
+Route::put('/edit_product/{id_product}', [ProductController::class, 'update']);

@@ -3,7 +3,7 @@
 @section('container')
 <div class="flex justify-between mb-7">
     <h1 class="text-headline1">Data Product</h1>
-    <a href="tambah_product.php" class="rounded bg-primary-500 text-btnmedium text-neutral-0 py-2.5 px-4 self-center">Tambah</a>
+    <a href="tambah_product" class="rounded bg-primary-500 text-btnmedium text-neutral-0 py-2.5 px-4 self-center">Tambah</a>
 </div>
 <div>
     <table class="table-auto max-w-full">
@@ -27,12 +27,12 @@
                             <p class="self-center">{{ $product->nama_product }}</p>
                         </div>
                     </td>
-                    <td class="px-5">{{ $product->kategori }}</td>
+                    <td class="px-5">{{ $product->jenisproduct->nama_kategori }}</td>
                     <td class="px-5">{{ $product->harga }}</td>
                     <td class="px-5">{{ $product->stok }}</td>
                     <td class="px-5 py-2">
                         <div class="flex space-x-2.5">                    
-                            <a href="edit_product.php" class=" rounded bg-warning-500 text-btnmedium text-neutral-0 self-center py-2.5 px-4">Edit</a>
+                            <a href="edit_product/{{ $product->id_product }}" class=" rounded bg-warning-500 text-btnmedium text-neutral-0 self-center py-2.5 px-4">Edit</a>
                             <a href="" class=" rounded bg-danger-500 text-btnmedium text-neutral-0 self-center py-2.5 px-4">Hapus</a>
                         </div>
                     </td>

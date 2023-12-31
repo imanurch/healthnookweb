@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('jenisproducts', function (Blueprint $table) {
             $table->id('id_kategori')->autoIncrement;
             $table->string('nama_kategori');
+            $table->text('deskripsi');
             $table->timestamps();
         });
     }

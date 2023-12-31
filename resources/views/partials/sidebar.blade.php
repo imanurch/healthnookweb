@@ -8,7 +8,7 @@
 
     <nav class="mt-10">
         <div>
-            <a href="dashboard.php" class="w-full flex justify-between items-center py-3 px-6 text-neutral-700 cursor-pointer hover:bg-primary-25  hover:text-neutral-700 focus:outline-none ">
+            <a href="dashboard" class="w-full flex justify-between items-center py-3 px-6 text-neutral-700 cursor-pointer hover:bg-primary-25  hover:text-neutral-700 focus:outline-none ">
                 <span class="flex items-center">
                     <img src="assets/home.svg" alt="">
                     <span class="mx-4 font-medium ">Dashboard</span>
@@ -33,8 +33,8 @@
             </button>
 
             <div x-show="open" class="bg-primary-25">
-                <a class="py-2 px-16 block text-sm text-neutral-700 hover:bg-blue-500 hover:text-white" href="user.php">User</a>
-                <a class="py-2 px-16 block text-sm text-neutral-700 hover:bg-blue-500 hover:text-white" href="product.php
+                <a class="py-2 px-16 block text-sm text-neutral-700 hover:bg-blue-500 hover:text-white" href="user">User</a>
+                <a class="py-2 px-16 block text-sm text-neutral-700 hover:bg-blue-500 hover:text-white" href="product
                 ">Product</a>
             </div>
         </div>

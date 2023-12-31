@@ -3,7 +3,7 @@
 @section('container')
 <div class="flex justify-between mb-7">
     <h1 class="text-headline1">Data User</h1>
-    <a href="tambah_user.php" class="rounded bg-primary-500 text-btnmedium text-neutral-0 py-2.5 px-4 self-center">Tambah</a>
+    <a href="tambah_user" class="rounded bg-primary-500 text-btnmedium text-neutral-0 py-2.5 px-4 self-center">Tambah</a>
 </div>
 <div>
     <table class="table-auto max-w-full ">
@@ -36,8 +36,12 @@
                     </td>
                     <td class="px-5 py-2">
                         <div class="flex justify-center space-x-2.5">                    
-                            <a href="edit_user.php" class="rounded bg-warning-500 text-btnmedium text-neutral-0 self-center py-2.5 px-4">Edit</a>
-                            <button class=" rounded bg-danger-500 text-btnmedium text-neutral-0 self-center py-2.5 px-4">Hapus</button>
+                            <a href="edit_user" class="rounded bg-warning-500 text-btnmedium text-neutral-0 self-center py-2.5 px-4">Edit</a>
+                            <form action="user/{{ $user}}" method="post">
+                                @method('delete')
+                                @csrf
+                                <button class=" rounded bg-danger-500 text-btnmedium text-neutral-0 self-center py-2.5 px-4">Hapus</button>
+                            </form>
                         </div>
                     </td>
                 </tr>

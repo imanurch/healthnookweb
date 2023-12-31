@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id('id_product')->autoIncrement;
-            $table->binary('foto_product');
+            $table->binary('foto_product')->nullable;
             $table->string('nama_product');
-            $table->string('kategori');
+            $table->foreignId('id_kategori');
             $table->integer('harga');
             $table->integer('stok');
             $table->timestamps();

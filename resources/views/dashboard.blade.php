@@ -10,7 +10,7 @@
                 <div class="self-center">
                     <div class="flex">
                         <h1 class="text-headline1 text-primary-500">{{ $active_product }}</h1>
-                        <h3 class="text-headline3 text-neutral-400 self-center">/{{ $all_product }}</h3>
+                        <h3 class="text-headline3 text-neutral-400 self-center">/{{ count($products) }}</h3>
                     </div>
                     <div class="w-28">
                         <p class="text-body1">Jenis Produk Tersedia</p>
@@ -53,7 +53,7 @@
                                 <img src="{{ $product->foto_product}}" alt="" class="w-10">
                                 <p class="self-center">{{ $product->nama_product}}</p>
                             </td>
-                            <td class="px-5">{{ $product->kategori}}</td>
+                            <td class="px-5">{{ $product->jenisproduct->nama_kategori}}</td>
                             <td class="px-5">{{ $product->harga}}</td>
                             <td class="px-5">{{ $product->stok}}</td>
                         </tr>

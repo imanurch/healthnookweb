@@ -18,7 +18,7 @@
             <h1 class="text-headline1">Bergabung bersama kami</h1>
             <p class="text-body1 text-neutral-600">Mulai peduli kesehatanmu dengan produk HealthNook</p>
         </div>
-        <form action="daftar.php" method="post">
+        <form action="daftar" method="post">
             @csrf
             <div class="w-80 space-y-7">
                 <div class="space-y-5">
@@ -26,12 +26,12 @@
                         <label for="nama_user" class="text-body1">Nama*</label>
                         <br><input type="text" name="nama_user" id="nama_user" placeholder="Masukkan nama anda" class="border-[1px] rounded border-neutral-400 text-text1 text-neutral-600 p-2 w-full @error('nama_user') is-invalid @enderror" required value="{{ old('nama_user') }}" autofocus>
                         @error('nama_user')
-                        <div class="border-red-500">{{ $message }}</div>
-                    @enderror
+                            <div class="border-red-500">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div>
                         <label for="no_telp" class="text-body1">Nomor Telephone*</label>
-                        <br><input type="number" name="no_telp" id="no_telp" placeholder="Masukkan nomor anda" class="border-[1px] rounded border-neutral-400 text-text1 text-neutral-600 p-2 w-full @error('no_telp') is-invalid @enderror" required value="{{ old('no_telp') }}">
+                        <br><input type="text" name="no_telp" id="no_telp" placeholder="Masukkan nomor anda" class="border-[1px] rounded border-neutral-400 text-text1 text-neutral-600 p-2 w-full @error('no_telp') is-invalid @enderror" required value="{{ old('no_telp') }}">
                         @error('no_telp')
                             <div class="border-red-500">{{ $message }}</div>
                         @enderror
@@ -62,7 +62,7 @@
         </form>
         <div class="flex justify-center">
             <p class="text-body1 text-neutral-800">Belum punya akun?</p>
-            <a href="daftar.php" class="text-headline4 text-primary-500 ps-1 self-center">Daftar</a>
+            <a href="daftar" class="text-headline4 text-primary-500 ps-1 self-center">Daftar</a>
         </div>
     </div>
 

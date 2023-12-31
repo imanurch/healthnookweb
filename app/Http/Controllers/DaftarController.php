@@ -18,7 +18,7 @@ class DaftarController extends Controller
         $validatedData = $request->validate([
             'nama_user' => 'required',
             'no_telp' => 'required|unique:users|min:12|max:12',
-            'email' => 'required|unique:users',
+            'email' => 'required|unique:users|email:dns',
             'password' => 'required|min:8|max:12',
         ]);
         User::create($validatedData);

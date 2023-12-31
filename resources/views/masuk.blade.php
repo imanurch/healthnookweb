@@ -18,7 +18,7 @@
             <h1 class="text-headline1">Masuk ke akunmu</h1>
             <p class="text-body1 text-neutral-600">Selamat datang kembali! Mohon verifikasi data diri</p>
         </div>
-        <form action="masuk.php" method="post">
+        <form action="masuk" method="post">
             @csrf
             <div class="w-80 space-y-7">
                 <div class="space-y-5">
@@ -52,7 +52,7 @@
         </form>
         <div class="flex justify-center">
             <p class="text-body1 text-neutral-800">Belum punya akun?</p>
-            <a href="daftar.php" class="text-headline4 text-primary-500 ps-1 self-center">Daftar</a>
+            <a href="daftar" class="text-headline4 text-primary-500 ps-1 self-center">Daftar</a>
         </div>
     </div>
 
