@@ -18,8 +18,8 @@
         @endauth
         @guest
             <div class="grid grid-cols-2 gap-[1rem]">
-                <a href="masuk.php" class="text-btnmedium text-primary-500 border-[1px] border-primary-500 rounded px-xbtnpadding py-ybtnpadding">Masuk</a>
-                <a href="daftar.php" class="text-btnmedium text-neutral-0 bg-primary-500 shadow-btnshadow rounded px-xbtnpadding py-ybtnpadding">Daftar</a>
+                <a href="masuk" class="text-btnmedium text-primary-500 border-[1px] border-primary-500 rounded px-xbtnpadding py-ybtnpadding">Masuk</a>
+                <a href="daftar" class="text-btnmedium text-neutral-0 bg-primary-500 shadow-btnshadow rounded px-xbtnpadding py-ybtnpadding">Daftar</a>
             </div>
         @endguest 
         

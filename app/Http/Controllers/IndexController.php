@@ -4,15 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \App\Models\Product;
+// use \App\Models\User;
 
 class IndexController extends Controller
 {
     public function index()
     {
         return view('index', [
-            "products" => Product::all(),
+            "products" => Product::limit(5)->get(),
             "masker" => Product::with('jenisproduct')->where("id_kategori", "1")->get(),
-            "obat_dalam" => Product::with('jenisproduct')->where("id_kategori", "2")->get(),
+            "obat_dalam" => Product::with('jenisproduct')->where("id_kategori", "2")->limit(5)->get(),
             "alat_medis" => Product::with('jenisproduct')->where("id_kategori", "3")->get(),
             "obat_luar" => Product::with('jenisproduct')->where("id_kategori", "4")->get(),
         ]);

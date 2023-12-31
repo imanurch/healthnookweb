@@ -38,9 +38,7 @@ class UserController extends Controller
             'password' => 'required|min:8|max:12',
         ]);
         User::create($validatedData);
-        return view('user', [
-            "users" => User::all(),
-        ]);
+        return redirect('/user');
         // @dd("success");
     }
 

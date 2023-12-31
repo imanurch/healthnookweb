@@ -47,18 +47,16 @@ Route::get('/admin', function () {
 Route::get('/dashboard', [DashboardController::class, 'index']);
 
 Route::get('/user', [UserController::class, 'index']);
-// Route::get('/user/{id_user}', [UserController::class, 'destroy']);
-// Route::post('/user/{id_user}', [UserController::class, 'destroy']);
 Route::get('/tambah_user', [UserController::class, 'add']);
 Route::post('/tambah_user', [UserController::class, 'insert']);
 Route::get('/edit_user/{id_user}', [UserController::class, 'edit']);
 Route::put('/edit_user/{id_user}', [UserController::class, 'update']);
-Route::put('/verif_akun/{id_user}', [UserController::class, 'verif']);
-Route::put('/delete_user/{id_user}', [UserController::class, 'delete']);
+Route::put('/verif_akun', [UserController::class, 'verif']);
+Route::delete('/delete_user', [UserController::class, 'delete']);
 
 Route::get('/product', [ProductController::class, 'index']);
 Route::get('/tambah_product', [ProductController::class, 'add']);
 Route::post('/tambah_product', [ProductController::class, 'insert']);
 Route::get('/edit_product/{id_product}', [ProductController::class, 'edit']);
 Route::put('/edit_product/{id_product}', [ProductController::class, 'update']);
-Route::put('/delete_product/{id_product}', [ProductController::class, 'delete']);
+Route::delete('/delete_product', [ProductController::class, 'delete']);

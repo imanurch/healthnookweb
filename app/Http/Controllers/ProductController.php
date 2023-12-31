@@ -17,10 +17,10 @@ class ProductController extends Controller
 
     public function add()
     {
+        $lastid = Product::all()->last() ? Product::all()->last()->id_product + 1 : 1;
         return view('addproduct', [
             "kategori" => Jenisproduct::orderBy('nama_kategori', 'asc')->get(),
-            // "lastid" => Product::all()->last()->id_product,
-            "currentid" => (Product::all()->last()->id_product) + 1
+            "currentid" => $lastid
         ]);
     }
 
