@@ -10,7 +10,7 @@
         <div class="flex mt-2.5 space-x-5">
             @foreach ($products as $product)
             <div class="border rounded p-2 space-y-2">
-                <img src="assets/illustrasi1.svg" alt="" class="w-48">
+                <img src="{{ asset('storage/'.$product->foto_product) }}" alt="" class="w-48 h-48 object-none object-center">
                 <div class="space-y-2">
                     <p class="text-body1 text-neutral-900 w-48 h-12">{{ $product->nama_product }}</p>
                     <h4 class="text-headline4 text-neutral-900">Rp{{ $product->harga }}</h4>
@@ -30,7 +30,7 @@
         <div class="flex mt-2.5 space-x-5">
             @foreach ($masker as $mask)
             <div class="border rounded p-2 space-y-2">
-                <img src="assets/illustrasi1.svg" alt="" class="w-48">
+                <img src="{{ asset('storage/'.$product->foto_product) }}" alt="" class="w-48 h-48 object-none object-center">
                 <div class="space-y-2">
                     <p class="text-body1 text-neutral-900 w-48 h-12">{{ $mask->nama_product }}</p>
                     <h4 class="text-headline4 text-neutral-900">Rp{{ $mask->harga }}</h4>
@@ -50,7 +50,7 @@
         <div class="flex mt-2.5 space-x-5">
             @foreach ($obat_dalam as $od)
             <div class="border rounded p-2 space-y-2">
-                <img src="assets/illustrasi1.svg" alt="" class="w-48">
+                <img src="{{ asset('storage/'.$product->foto_product) }}" alt="" class="w-48 h-48 object-none object-center">
                 <div class="space-y-2">
                     <p class="text-body1 text-neutral-900 w-48 h-12">{{ $od->nama_product }}</p>
                     <h4 class="text-headline4 text-neutral-900">Rp{{ $od->harga }}</h4>
@@ -70,7 +70,7 @@
         <div class="flex mt-2.5 space-x-5">
             @foreach ($alat_medis as $alat)
             <div class="border rounded p-2 space-y-2">
-                <img src="assets/illustrasi1.svg" alt="" class="w-48">
+                <img src="{{ asset('storage/'.$product->foto_product) }}" alt="" class="w-48 h-48 object-none object-center">
                 <div class="space-y-2">
                     <p class="text-body1 text-neutral-900 w-48 h-12">{{ $alat->nama_product }}</p>
                     <h4 class="text-headline4 text-neutral-900">Rp{{ $alat->harga }}</h4>
@@ -90,7 +90,7 @@
         <div class="flex mt-2.5 space-x-5">
             @foreach ($obat_luar as $ol)
             <div class="border rounded p-2 space-y-2">
-                <img src="assets/illustrasi1.svg" alt="" class="w-48">
+                <img src="{{ asset('storage/'.$product->foto_product) }}" alt="" class="w-48 h-48 object-none object-center">
                 <div class="space-y-2">
                     <p class="text-body1 text-neutral-900 w-48 h-12">{{ $ol->nama_product }}</p>
                     <h4 class="text-headline4 text-neutral-900">Rp{{ $ol->harga }}</h4>
