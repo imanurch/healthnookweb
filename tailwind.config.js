@@ -1,14 +1,20 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-    content: ["resources/views/**/*.{html,js,php}"],
+    content: [
+        "resources/views/**/*.{html,js,php}",
+        "./resources/**/*.blade.php",
+        "./resources/**/*.js",
+        "./resources/**/*.vue",
+        "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
+    ],
     theme: {
         fontSize: {
-          headline:[
-            "2.5rem",
+            headline: [
+                "2.5rem",
                 {
                     fontWeight: "600",
                 },
-          ],
+            ],
             headline1: [
                 "1.75rem",
                 {

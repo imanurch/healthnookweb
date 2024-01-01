@@ -3,7 +3,7 @@
 @section('container')
 <div>
     <h1 class="text-headline1 mb-10">Tambah Product</h1>
-    <form action="tambah_product" method="post">
+    <form action="tambah_product" method="post" enctype="multipart/form-data">
         @csrf
         <div class="w-80 space-y-10">
             <div class="space-y-5">
@@ -32,7 +32,10 @@
                 </div>
                 <div>
                     <label for="stok" class="text-body1">Stok</label>
-                    <br><input type="number" name="stok" id="stok" placeholder="0" class="border-[1px] rounded border-neutral-400 text-text1 text-neutral-600 p-2 w-full" required>
+                    <br><input type="number" name="stok" id="stok" value="1" class="border-[1px] rounded border-neutral-400 text-text1 text-neutral-600 p-2 w-full @error('harga') is-invalid @enderror" required value="{{ old('stok') }}" required>
+                    @error('stok')
+                    <div class="border-red-500">{{ $message }}</div>
+                @enderror
                 </div>
                 <div>
                     <label for="foto_product" class="text-body1">Gambar</label>

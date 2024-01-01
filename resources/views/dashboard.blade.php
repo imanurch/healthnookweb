@@ -50,7 +50,7 @@
                         <tr class="border-b-[1px] border-primary-50">
                             <td class="px-5">{{ $product->id_product }}</td>
                             <td class="px-5 py-2" class="flex space-x-1">
-                                <img src="{{ $product->foto_product}}" alt="" class="w-10">
+                                <img src="{{ asset('storage/'.$product->foto_product) }}" alt="" class="w-10">
                                 <p class="self-center">{{ $product->nama_product}}</p>
                             </td>
                             <td class="px-5">{{ $product->jenisproduct->nama_kategori}}</td>

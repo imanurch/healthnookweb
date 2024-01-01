@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id('id_product')->autoIncrement;
-            $table->binary('foto_product')->nullable;
+            $table->string('foto_product')->nullable;
             $table->string('nama_product');
             $table->foreignId('id_kategori');
             $table->integer('harga');

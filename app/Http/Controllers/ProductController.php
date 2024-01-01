@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use \App\Models\Product;
 use \App\Models\Jenisproduct;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -12,6 +13,7 @@ class ProductController extends Controller
     {
         return view('product', [
             "products" => Product::all()
+            // "products" => Product::simplePaginate(5),
         ]);
     }
 
@@ -34,21 +36,22 @@ class ProductController extends Controller
 
     public function insert(Request $request)
     {
-        $request['foto_product'] = '1';
         $validatedData = $request->validate([
             'nama_product' => 'required',
             'harga' => 'required|integer',
-            'stok' => 'required',
+            'stok' => 'required|gte:1',
             'id_kategori' => 'required',
-            'foto_product' => 'required',
         ]);
+
+        if ($request->file('foto_product')) {
+            $validatedData['foto_product'] = $request->file('foto_product')->store('product-img');
+        }
+
         Product::create($validatedData);
-        return view('product', [
-            "products" => Product::all()
-        ]);
+        return redirect('product');
     }
 
-    public function update(Request $request)
+    public function update(Request $request, Product $product)
     {
         // @dd($request);
         $validatedData = $request->validate([
@@ -59,6 +62,15 @@ class ProductController extends Controller
             // 'foto_product' => 'required',
         ]);
 
+        // @dd($request->foto_product);
+
+        if ($request->file('foto_product')) {
+            if ($product->foto_product) {
+                Storage::delete($product->foto_product);
+            }
+            $validatedData['foto_product'] = $request->file('foto_product')->store('product-img');
+        }
+
         (Product::where('id_product', $request->id_product)->update($validatedData));
         // @dd(Product::where('id_product', $request->id_product)->get());
 
@@ -67,6 +79,9 @@ class ProductController extends Controller
 
     public function delete(Request $request)
     {
+        // if ($request->foto_product) {
+        //     Storage::delete($request->foto_product);
+        // }
         Product::where('id_product', $request->id_product)->delete();
         return redirect('/product');
     }

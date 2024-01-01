@@ -71,7 +71,8 @@ class UserController extends Controller
 
     public function delete(Request $request)
     {
-        User::where('id_user', $request->id_user)->delete();
-        return redirect('/user');
+        @dd($request->id_user);
+        // User::where('id_user', $request->id_user)->delete();
+        // return redirect('/user');
     }
 }

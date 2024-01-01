@@ -23,7 +23,11 @@
                     <td class="px-5">{{ $product->id_product }}</td>
                     <td class="px-5">
                         <div class="flex space-x-1">
-                            <img src="{{ $product->foto_product }}" alt="" class="w-10">
+                            @if($product->foto_product)
+                                <img src="{{ asset('storage/'.$product->foto_product) }}" alt="" class="w-10">
+                            @else
+                                <img src="assets/default_product.jpg" alt="" class="w-10">
+                            @endif
                             <p class="self-center">{{ $product->nama_product }}</p>
                         </div>
                     </td>
@@ -59,7 +63,7 @@
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                                         </svg>
                                     </div>
-                                    <input type="text" hidden name="id_product" id="id_product">
+                                    <input type="text" name="id_product" id="id_product">
                                     <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                                         <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
                                         Delete Product

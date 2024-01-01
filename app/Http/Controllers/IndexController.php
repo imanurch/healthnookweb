@@ -11,11 +11,11 @@ class IndexController extends Controller
     public function index()
     {
         return view('index', [
-            "products" => Product::limit(5)->get(),
-            "masker" => Product::with('jenisproduct')->where("id_kategori", "1")->get(),
-            "obat_dalam" => Product::with('jenisproduct')->where("id_kategori", "2")->limit(5)->get(),
-            "alat_medis" => Product::with('jenisproduct')->where("id_kategori", "3")->get(),
-            "obat_luar" => Product::with('jenisproduct')->where("id_kategori", "4")->get(),
+            "products" => Product::where("stok",">","0")->limit(5)->get(),
+            "masker" => Product::with('jenisproduct')->where("id_kategori", "1")->where("stok",">","0")->limit(5)->get(),
+            "obat_dalam" => Product::with('jenisproduct')->where("id_kategori", "2")->where("stok",">","0")->limit(5)->get(),
+            "alat_medis" => Product::with('jenisproduct')->where("id_kategori", "3")->where("stok",">","0")->limit(5)->get(),
+            "obat_luar" => Product::with('jenisproduct')->where("id_kategori", "4")->where("stok",">","0")->limit(5)->get(),
         ]);
     }
 

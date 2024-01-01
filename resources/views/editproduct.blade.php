@@ -3,7 +3,7 @@
 @section('container')
 <div>
     <h1 class="text-headline1 mb-10">Edit Product</h1>
-    <form action="/edit_product/{{ $product->id_product }}" method="post">
+    <form action="/edit_product/{{ $product->id_product }}" method="post" enctype="multipart/form-data">
         @method('put')
         @csrf
         <div class="w-80 space-y-10">
@@ -38,7 +38,7 @@
                 </div>
                 <div>
                     <label for="foto_product" class="text-body1">Gambar</label>
-                    <br><input type="file" name="foto_product" id="foto_product"  class="border-[1px] rounded border-neutral-400 text-text1 text-neutral-600 p-2 w-full">
+                    <br><input type="file" name="foto_product" id="foto_product" value="{{ asset('storage/'.$product->foto_product) }}" class="border-[1px] rounded border-neutral-400 text-text1 text-neutral-600 p-2 w-full">
                 </div>
             </div>
             <div class="space-y-5">
