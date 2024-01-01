@@ -12,8 +12,7 @@ class ProductController extends Controller
     public function index()
     {
         return view('product', [
-            "products" => Product::all()
-            // "products" => Product::simplePaginate(5),
+            "products" => Product::paginate(10),
         ]);
     }
 
@@ -79,9 +78,9 @@ class ProductController extends Controller
 
     public function delete(Request $request)
     {
-        // if ($request->foto_product) {
-        //     Storage::delete($request->foto_product);
-        // }
+        if ($request->foto_product) {
+            Storage::delete($request->foto_product);
+        }
         Product::where('id_product', $request->id_product)->delete();
         return redirect('/product');
     }

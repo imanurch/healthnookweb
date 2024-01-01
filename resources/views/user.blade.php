@@ -17,7 +17,7 @@
                 <th class="py-[1.19rem] px-[0.81rem] rounded-e">Action</th>
             </tr>
         </thead>
-        <tbody class="text-center text-body1">
+        <tbody class="text-center text-body1 mb-5">
             @foreach ($users as $user)
                 <tr class="border-b-[1px] border-primary-50">
                     <td class="px-5">{{ $user->id_user }}</td>
@@ -49,6 +49,8 @@
             @endforeach
         </tbody>
     </table>
+
+    {{ $users -> links() }}
 
     {{-- VERIF MODAL --}}
     <form action="/verif_akun/" method="post">
@@ -112,7 +114,7 @@
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                                         </svg>
                                     </div>
-                                    <input type="text" name="id_user" id="id_user">
+                                    <input type="text" hidden name="id_user" id="id_user2">
                                     <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                                         <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
                                         Delete Account
@@ -139,7 +141,7 @@
     </form>    
 
 
-</div>  
+</div>
 
 {{-- SCRIPT VERIF USER --}}
 <script type="text/javascript">
@@ -179,10 +181,10 @@
             
             
             // isi hidden input
-            // $('#id_user').val(userId);
+            $('#id_user2').val(userId);
             // document.getElementById("id_user").value= userId
-            let inp = document.getElementById("id_user");
-            inp.value = userId;
+            // let inp = document.getElementById("id_user");
+            // inp.value = userId;
             
              // Perbarui pesan konfirmasi dalam modal
              $('#deleteConfirmation').text("Are you sure you want to delete user with id " + userId + "? All data will be permanently removed. This action cannot be undone.");

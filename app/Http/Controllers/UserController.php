@@ -10,7 +10,7 @@ class UserController extends Controller
     public function index()
     {
         return view('user', [
-            "users" => User::all(),
+            "users" => User::paginate(10),
         ]);
     }
 
@@ -71,8 +71,8 @@ class UserController extends Controller
 
     public function delete(Request $request)
     {
-        @dd($request->id_user);
-        // User::where('id_user', $request->id_user)->delete();
-        // return redirect('/user');
+        // @dd($request->id_user);
+        User::where('id_user', $request->id_user)->delete();
+        return redirect('/user');
     }
 }
