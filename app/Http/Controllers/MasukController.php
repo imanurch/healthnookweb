@@ -22,22 +22,15 @@ class MasukController extends Controller
         // dd('success');
 
         if (Auth::attempt($credentials)) {
-            $customer = User::where('status', '1')->where('role', 'customer')->first() ? 1 : 0;
-            // @dd($customer);
-
-            if ($customer == '1') {
-                // @dd('verif succes');
-                $request->session()->regenerate();
-                return redirect('/');
-                // $login ='1';
-                // return redirect()->route('/',['id'=>1]);
-                // return redirect()->action(
-                //     [IndexController::class, 'index'], ['login' => 1]
-                // );
-            } else {
-                // @dd('verif gagal');
-                return redirect('/verifikasi');
-            }
+            $request->session()->regenerate();
+            return redirect()->intended()->with('success', 'Login Success');
+        } else {
+            return back()->with('error', 'Login Failed');
         }
     }
+
+    // public function logout (Request $request){
+    //     Auth::logout();
+    //     return redirect('/');
+    // }
 }

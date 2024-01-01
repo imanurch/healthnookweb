@@ -13,7 +13,7 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>  
     <div class="flex">
         @include('partials.sidebar')
-        <div class="pt-16 px-14">
+        <div class="pt-16 px-14 w-full">
             @yield('container')
         </div>
     </div>

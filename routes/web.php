@@ -24,6 +24,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [IndexController::class, 'index']);
+Route::get('/home', [IndexController::class, 'index'])->middleware('auth');
 // Route::get('/katalog', [IndexController::class, 'index']);
 Route::get('/masker', [IndexController::class, 'masker']);
 Route::get('/obat_dalam', [IndexController::class, 'obat_dalam']);
@@ -40,11 +41,12 @@ Route::get('/verifikasi', function () {
     return view('verifikasi');
 });
 
-Route::get('/admin', function () {
-    return view('/admin/layout');
-});
+// Route::get('/admin', function () {
+//     return view('/admin/layout');
+// });
 
 Route::get('/dashboard', [DashboardController::class, 'index']);
+// Route::get('/dashboard', [DashboardController::class, 'index'])->except('show')->middleware('admin');
 
 Route::get('/user', [UserController::class, 'index']);
 Route::get('/tambah_user', [UserController::class, 'add']);

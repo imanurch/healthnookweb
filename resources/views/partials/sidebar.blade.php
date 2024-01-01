@@ -39,7 +39,7 @@
             </div>
         </div>
 
-        <div class="flex justify-center mt-14"> 
+        <div class="flex justify-center mt-14 mx-5"> 
             <button class="openLogoutModal text-neutral-0 bg-danger-500 rounded shadow-btnshadow w-64 py-2.5">Keluar</button>
             {{-- <button class="openLogoutModal cursor-pointer rounded bg-danger-500 text-btnmedium text-neutral-0 self-center py-2.5 px-4">Hapus</button> --}}
 

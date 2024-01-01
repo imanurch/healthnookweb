@@ -35,7 +35,7 @@
     <div class="mt-14">
         <h1 class="text-headline1 mb-7">Data Product</h1>
         <div>
-            <table class="table-auto max-w-full">
+            <table class="table-auto w-full">
                 <thead class="bg-primary-25 text-headline4">
                     <tr>
                         <th class="py-[1.19rem] px-[0.81rem] rounded-s">Id Product</th>
@@ -49,9 +49,14 @@
                     @foreach($products as $product)
                         <tr class="border-b-[1px] border-primary-50">
                             <td class="px-5">{{ $product->id_product }}</td>
-                            <td class="px-5 py-2" class="flex space-x-1">
-                                <img src="{{ asset('storage/'.$product->foto_product) }}" alt="" class="w-10">
-                                <p class="self-center">{{ $product->nama_product}}</p>
+                            <td class="px-5 py-2" class="flex space-x-1"><div class="flex space-x-3">
+                                @if($product->foto_product)
+                                    <img src="{{ asset('storage/'.$product->foto_product) }}" alt="" class="w-10 h-10 object-none object-center rounded">
+                                @else
+                                    <img src="assets/default_product.jpg" alt="" class="w-10 h-10 object-none object-center rounded">
+                                @endif
+                                <p class="self-center">{{ $product->nama_product }}</p>
+                            </div>
                             </td>
                             <td class="px-5">{{ $product->jenisproduct->nama_kategori}}</td>
                             <td class="px-5">{{ $product->harga}}</td>

@@ -6,7 +6,7 @@
     <a href="tambah_user" class="rounded bg-primary-500 text-btnmedium text-neutral-0 py-2.5 px-4 self-center">Tambah</a>
 </div>
 <div>
-    <table class="table-auto max-w-full ">
+    <table class="table-auto w-full ">
         <thead class="bg-primary-25 text-headline4">
             <tr>
                 <th class="py-[1.19rem] px-[0.81rem] rounded-s">Id User</th>
@@ -26,13 +26,8 @@
                     <td class="px-5">{{ $user->email }}</td>
                     <td class="px-5">
                         <div class="flex justify-center space-x-2.5">
-                            {{-- <form action="/verif_akun/{{ $user->id_user }}" method="post">
-                                @method('put')
-                                @csrf
-                                <button class="cursor-pointer"  onclick="edit()"><img src="assets/acc.svg" alt="" class="p-3 bg-success-500 rounded {{ ($user->status == "1")?'hidden':'show' }}"></button>
-                            </form> --}}
                             <a data-user-id="{{ $user->id_user }}" class="openVerifModal cursor-pointer"  onclick="edit()"><img src="assets/acc.svg" alt="" class="p-3 bg-success-500 rounded {{ ($user->status == "1")?'hidden':'show' }}"></a>
-                            <img src="assets/reject.svg" alt="" class="p-3 bg-danger-400 rounded {{ ($user->status == "1")?'hidden':'show' }}">                        
+                            {{-- <img src="assets/reject.svg" alt="" class="p-3 bg-danger-400 rounded {{ ($user->status == "1")?'hidden':'show' }}">                         --}}
                             <div class="flex {{ ($user->status == "0")?'hidden':'show' }}">
                                 <img src="assets/approve.svg" alt="" class="">  
                                 <p class="text-success-500 ps-2">Terverifikasi</p>                      

@@ -6,7 +6,7 @@
     <a href="tambah_product" class="rounded bg-primary-500 text-btnmedium text-neutral-0 py-2.5 px-4 self-center">Tambah</a>
 </div>
 <div>
-    <table class="table-auto max-w-full mb-4">
+    <table class="table-auto w-full mb-4">
         <thead class="bg-primary-25 text-headline4">
             <tr>
                 <th class="py-[1.19rem] px-[0.81rem] rounded-s">Id Product</th>
@@ -22,11 +22,11 @@
                 <tr class="border-b-[1px] border-primary-50">
                     <td class="px-5">{{ $product->id_product }}</td>
                     <td class="px-5">
-                        <div class="flex space-x-1">
+                        <div class="flex space-x-3">
                             @if($product->foto_product)
-                                <img src="{{ asset('storage/'.$product->foto_product) }}" alt="" class="w-10">
+                                <img src="{{ asset('storage/'.$product->foto_product) }}" alt="" class="w-10 h-10 object-none object-center rounded">
                             @else
-                                <img src="assets/default_product.jpg" alt="" class="w-10">
+                                <img src="assets/default_product.jpg" alt="" class="w-10 h-10 object-none object-center rounded">
                             @endif
                             <p class="self-center">{{ $product->nama_product }}</p>
                         </div>
@@ -35,7 +35,7 @@
                     <td class="px-5">{{ $product->harga }}</td>
                     <td class="px-5">{{ $product->stok }}</td>
                     <td class="px-5 py-2">
-                        <div class="flex space-x-2.5">                    
+                        <div class="flex justify-center space-x-2.5">                    
                             <a href="edit_product/{{ $product->id_product }}" class=" rounded bg-warning-500 text-btnmedium text-neutral-0 self-center py-2.5 px-4">Edit</a>
                             <a data-product-id="{{ $product->id_product }}" class="openDelModal cursor-pointer rounded bg-danger-500 text-btnmedium text-neutral-0 self-center py-2.5 px-4">Hapus</a>
                         </div>
