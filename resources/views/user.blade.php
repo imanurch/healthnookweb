@@ -17,7 +17,7 @@
                 <th class="py-[1.19rem] px-[0.81rem] rounded-e">Action</th>
             </tr>
         </thead>
-        <tbody class="text-center text-body1 mb-5">
+        <tbody class="text-center text-body1 mb-4">
             @foreach ($users as $user)
                 <tr class="border-b-[1px] border-primary-50">
                     <td class="px-5">{{ $user->id_user }}</td>

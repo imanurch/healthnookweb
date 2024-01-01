@@ -6,7 +6,7 @@
     <a href="tambah_product" class="rounded bg-primary-500 text-btnmedium text-neutral-0 py-2.5 px-4 self-center">Tambah</a>
 </div>
 <div>
-    <table class="table-auto max-w-full mb-5">
+    <table class="table-auto max-w-full mb-4">
         <thead class="bg-primary-25 text-headline4">
             <tr>
                 <th class="py-[1.19rem] px-[0.81rem] rounded-s">Id Product</th>

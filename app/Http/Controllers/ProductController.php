@@ -12,7 +12,7 @@ class ProductController extends Controller
     public function index()
     {
         return view('product', [
-            "products" => Product::paginate(10),
+            "products" => Product::paginate(7),
         ]);
     }
 
@@ -50,7 +50,7 @@ class ProductController extends Controller
         return redirect('product');
     }
 
-    public function update(Request $request, Product $product)
+    public function update(Request $request,)
     {
         // @dd($request);
         $validatedData = $request->validate([
@@ -63,9 +63,10 @@ class ProductController extends Controller
 
         // @dd($request->foto_product);
 
+        $validateDel = Product::find($request->id_product);
         if ($request->file('foto_product')) {
-            if ($product->foto_product) {
-                Storage::delete($product->foto_product);
+            if ($validateDel->foto_product) {
+                Storage::delete($validateDel->foto_product);
             }
             $validatedData['foto_product'] = $request->file('foto_product')->store('product-img');
         }
@@ -78,8 +79,9 @@ class ProductController extends Controller
 
     public function delete(Request $request)
     {
-        if ($request->foto_product) {
-            Storage::delete($request->foto_product);
+        $data = Product::find($request->id_product);
+        if ($data->foto_product) {
+            Storage::delete($data->foto_product);
         }
         Product::where('id_product', $request->id_product)->delete();
         return redirect('/product');
